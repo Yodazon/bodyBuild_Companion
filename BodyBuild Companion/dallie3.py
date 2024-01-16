@@ -25,7 +25,7 @@ from clarifai_grpc.grpc.api.status import status_code_pb2
 import base64
 
 
-def img_gen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID):
+def img_gen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID) -> int:
 
     image_filename = f"{RAW_TEXT_INPUT}.jpg"
 
@@ -65,10 +65,11 @@ def img_gen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID):
     image = None
     with open(image_filename, 'wb') as f:
         f.write(results)
+        image = (f.write(results))
 
     print(type(image))
 
-    return (None)
+    return (image)
 
 # Each model we have in the workflow will produce one output.
     '''
