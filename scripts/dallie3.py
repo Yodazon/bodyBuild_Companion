@@ -63,13 +63,14 @@ def img_gen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID) -> int:
 
     #image_filename = f"gen-image1.jpg"
     image = None
-    with open(image_filename, 'wb') as f:
+    image_path = "C:\\Coding\\Github\\bodyBuild_Companion\\images\\" + image_filename
+    with open(image_path, 'wb') as f:
         f.write(results)
         image = (f.write(results))
 
     print(type(image))
 
-    return (image)
+    return (image_path)
 
 # Each model we have in the workflow will produce one output.
     '''
