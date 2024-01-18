@@ -22,6 +22,10 @@ def statCheck(stat_check):
          "Sleep - 2",
          "Weight - 3"
          ]
+    y = ["Activity it is!",
+         "Sleep it is! zzz",
+         "Weight it is!",
+         'Try again!']
     if stat_check is True:
         print("Which stats would you like to check out?")
         
@@ -32,16 +36,16 @@ def statCheck(stat_check):
         check = False
         while check is False:
             if stat_Choice == 1:
-                print("Activity it is!")
+                print(y[0])
                 check = True
                 stats_return = True
             elif stat_Choice == 2:
-                print("Sleep it is! zzz")s
+                print(y[1])
                 check = True
                 stats_return = False
             elif stat_Choice == 3:
-                print("Weight it is!")
+                print(y[2])
                 check = True
                 stats_return = False
             else:
-                print('Try again!')
+                print(y[3])
