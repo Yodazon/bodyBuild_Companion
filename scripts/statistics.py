@@ -18,18 +18,18 @@ def determineStatView() -> bool:
 
 
 def statCheck(stat_check):
-    x = ["Activity (Steps, Calories) - 1",
+    x = str(["Activity (Steps, Calories) - 1",
          "Sleep - 2",
          "Weight - 3"
-         ]
-    y = ["Activity it is!",
+         ])
+    y = str(["Activity it is!",
          "Sleep it is! zzz",
          "Weight it is!",
-         'Try again!']
+         'Try again!'])
     if stat_check is True:
         print("Which stats would you like to check out?")
         
-        for i in len(x):
+        for i in range(len(x)):
             print(x[i])
 
         stat_Choice = int(input("Please input the corresponding number to check the stat"))
