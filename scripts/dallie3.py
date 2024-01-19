@@ -63,7 +63,8 @@ def imgGen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID) -> int:
 
     #image_filename = f"gen-image1.jpg"
     image = None
-    image_path = "C:\\Coding\\Github\\bodyBuild_Companion\\images\\" + image_filename
+    # For Computer image_path = "C:\\Coding\\Github\\bodyBuild_Companion\\images\\" + image_filename
+    image_path = "C:\\Users\\heroa\\Documents\\Code\\GIthub\\bodyBuild_Companion\\images" + image_filename
     with open(image_path, 'wb') as f:
         f.write(results)
         image = (f.write(results))

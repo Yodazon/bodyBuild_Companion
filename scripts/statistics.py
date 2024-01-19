@@ -70,4 +70,5 @@ def showStat(stat_Choice):
 
 def plotStat(stat):
     print (stat)
+    
 
