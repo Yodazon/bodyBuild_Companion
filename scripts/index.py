@@ -17,6 +17,7 @@ print('Wow look at that!')
 companion = Image.open(image_path)
 companion.show()
 
+import statistics as stat
 stat_check = stat.determineStatView()
 
 stat.statCheck(stat_check)
