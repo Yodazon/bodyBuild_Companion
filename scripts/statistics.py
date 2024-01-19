@@ -1,5 +1,6 @@
 import numpy as numpy
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 
@@ -59,13 +60,14 @@ def statCheck(stat_check):
 
 
 def showStat(stat_Choice):
+    adjusted_Stat_Choice = stat_Choice -1 
     stat = ['activity.csv',
             "sleep.csv",
             "weight.csv"]
-    print(f"Cool, lets take a look at {stat[stat_Choice]}")
+    print(f"Cool, lets take a look at {stat[adjusted_Stat_Choice]}")
 
-    if stat_Choice == 1:
-        plt.plot()
-    elif stat_Choice == 2:
-    else:
+    plotStat(stat[adjusted_Stat_Choice])
+
+def plotStat(stat):
+    print (stat)
 
