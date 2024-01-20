@@ -71,16 +71,17 @@ def showStat(stat_Choice):
 def plotStat(stat, stat_Choice):
     print (stat)
     ##The following path is for the computer
-    csv_path = "C:\\Coding\\Github\\bodyBuild_Companion\\data" + stat
+    csv_path = "C:\\Coding\\Github\\bodyBuild_Companion\\data\\" + stat
 
     df_Plot_Stat = pd.read_csv(csv_path)
 
-    if stat_Choice == 1:
-        df_Plot_Stat.plot(x = "Activity Date", y = "Total Steps", kind ="line" )
-    elif stat_Choice == 2:
-        df_Plot_Stat.plot(x = "Sleep Day", y = "Total Minutes Asleep", kind ="line" )
+    if stat_Choice == 0:
+        print(df_Plot_Stat)
+        df_Plot_Stat.plot(x = "ActivityDate", y = "TotalSteps", kind ="line" )
+    elif stat_Choice == 1:
+        df_Plot_Stat.plot(x = "SleepDay", y = "TotalMinutesAsleep", kind ="line" )
     else:
-        df_Plot_Stat.plot(x = "Date", y = "Weight Pounds", kind ="line" )
+        df_Plot_Stat.plot(x = "Date", y = "WeightPounds", kind ="line" )
 
     
 
