@@ -66,9 +66,21 @@ def showStat(stat_Choice):
             "weight.csv"]
     print(f"Cool, lets take a look at {stat[adjusted_Stat_Choice]}")
 
-    plotStat(stat[adjusted_Stat_Choice])
+    plotStat(stat[adjusted_Stat_Choice], adjusted_Stat_Choice)
 
-def plotStat(stat):
+def plotStat(stat, stat_Choice):
     print (stat)
+    ##The following path is for the computer
+    csv_path = "C:\\Coding\\Github\\bodyBuild_Companion\\data" + stat
+
+    df_Plot_Stat = pd.read_csv(csv_path)
+
+    if stat_Choice == 1:
+        df_Plot_Stat.plot(x = "Activity Date", y = "Total Steps", kind ="line" )
+    elif stat_Choice == 2:
+        df_Plot_Stat.plot(x = "Sleep Day", y = "Total Minutes Asleep", kind ="line" )
+    else:
+        df_Plot_Stat.plot(x = "Date", y = "Weight Pounds", kind ="line" )
+
     
 
