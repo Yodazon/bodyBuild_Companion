@@ -28,7 +28,7 @@ def index():
 
 @app.route('/generatedImages/<filename>')
 def generatedImages(filename):
-    return send_from_directory('images', filename)
+    return send_from_directory('generatedImages', filename)
 
 
 @app.route('/generate', methods=['POST'])
