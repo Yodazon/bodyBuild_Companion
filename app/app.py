@@ -8,6 +8,7 @@ import urllib.parse
 sys.path.insert(1, 'C:\\Coding\\Github\\bodyBuild_Companion')
 from scripts.dallie3 import imgGen
 import scripts.user_info as info
+import scripts.statistics as stat
 
 app = Flask(__name__, template_folder= 'templates', static_folder='static')
 
@@ -37,6 +38,29 @@ def generate():
     generated_photo = generatePhoto(input_data)
     modified_input_data = input_data + '.jpg'
     return render_template('companion.html', generated_photo=modified_input_data)
+
+@app.route('/postStats', methods = ['POST'])
+def postStats():
+        selected_button = request.form.get('stat_clicked')
+        
+        if selected_button == 'activity':
+                stat.showStat(0)
+                pass
+
+        elif selected_button == 'sleep':
+                stat.showStat(1)
+                pass
+
+        elif selected_button == 'weight':
+                stat.showStat(2)
+                pass
+
+        else:
+                #suck my balls Mr Garrison
+                pass
+
+
+
 
 
 @app.route('/companion')

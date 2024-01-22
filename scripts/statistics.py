@@ -22,7 +22,10 @@ def determineStatView() -> bool:
             print('Try again!')
     return stats_return
 
-
+#
+#StatCheck is deprecated due to the involvement of a frontend HTML with Flask Backend
+#Jan 22, 2024
+'''
 def statCheck(stat_check):
     x = ["Activity (Steps, Calories) - 1",
          "Sleep - 2",
@@ -57,16 +60,19 @@ def statCheck(stat_check):
                 print(y[3])
 
         showStat(stat_Choice)
-
+'''
 
 def showStat(stat_Choice):
-    adjusted_Stat_Choice = stat_Choice -1 
+
+    # Deprecated, no longer needed with using flask
+    #adjusted_Stat_Choice = stat_Choice -1 
+
     stat = ['activity.csv',
             "sleep.csv",
             "weight.csv"]
-    print(f"Cool, lets take a look at {stat[adjusted_Stat_Choice]}")
+    print(f"Cool, lets take a look at {stat[stat_Choice]}")
 
-    plotStat(stat[adjusted_Stat_Choice], adjusted_Stat_Choice)
+    plotStat(stat[stat_Choice], stat_Choice)
 
 def plotStat(stat, stat_Choice):
     print (stat)

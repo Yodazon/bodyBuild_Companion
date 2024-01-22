@@ -8,6 +8,13 @@
 </head>
 <body>
     <h1>Check out your stats</h1>
+    <p>Wgich of your stats would you like to take a look at?</p>
+    <form action="/postStats" method="post">
+        <button class = "button" >Activity (Steps, Calories)</button>
+        <button class = "button" >Sleep</button>
+        <button class = "button" >Weight</button>
+    </form>
+    
 </body>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>
