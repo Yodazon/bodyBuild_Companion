@@ -3,7 +3,13 @@ import user_info as info
 import statistics as stat
 
 from PIL import Image
+###
+###The following below is the setup for when running this program as a script
+###As of jan 21, trying to build an app with via
+###With python backend and HTML/JS/CSS Frontend
+###
 
+'''
 print('Hello! Welcome to the bodybuilding app, first lets generate your companion')
 
 
@@ -21,3 +27,5 @@ import statistics as stat
 stat_check = stat.determineStatView()
 
 stat.statCheck(stat_check)
+
+'''

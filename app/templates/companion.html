@@ -8,5 +8,17 @@
 </head>
 <body>
     <h1>Build your bodybuilding buddy!</h1>
+    <form action="/generate" method="post">
+        <label for="input_data">Input:</label>
+        <input type="text" id="input_data" name="input_data" required>
+        <button type="submit">Generate Photo</button>
+    </form>
+
+    {% if generated_photo %}
+        <img src="{{ url_for('generatedImages', filename=generated_photo) }}" alt="Generated Photo">
+    {% else %}
+        <p>No photo generated yet.</p>
+    {% endif %}
+
 </body>
 </html>
