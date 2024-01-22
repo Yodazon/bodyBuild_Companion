@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, send_from_directory
 import os
 import sys
+import urllib.parse
+
 
 #adding folder to file path
 sys.path.insert(1, 'C:\\Coding\\Github\\bodyBuild_Companion')
