@@ -22,7 +22,10 @@ def determineStatView() -> bool:
             print('Try again!')
     return stats_return
 
-
+#
+#StatCheck and showStat is deprecated due to the involvement of a frontend HTML with Flask Backend
+#Jan 22, 2024
+'''
 def statCheck(stat_check):
     x = ["Activity (Steps, Calories) - 1",
          "Sleep - 2",
@@ -58,30 +61,47 @@ def statCheck(stat_check):
 
         showStat(stat_Choice)
 
-
 def showStat(stat_Choice):
-    adjusted_Stat_Choice = stat_Choice -1 
+
+    # Deprecated, no longer needed with using flask
+    #adjusted_Stat_Choice = stat_Choice -1 
+
     stat = ['activity.csv',
             "sleep.csv",
             "weight.csv"]
-    print(f"Cool, lets take a look at {stat[adjusted_Stat_Choice]}")
+    print(f"Cool, lets take a look at {stat[stat_Choice]}")
 
-    plotStat(stat[adjusted_Stat_Choice], adjusted_Stat_Choice)
+    plot = plotStat(stat[stat_Choice], stat_Choice)
+    return (plot)
+'''
 
-def plotStat(stat, stat_Choice):
-    print (stat)
+def plotStat(value):
+    stat = ['activity.csv',
+            "sleep.csv",
+            "weight.csv"]
     ##The following path is for the computer
-    csv_path = "C:\\Coding\\Github\\bodyBuild_Companion\\data\\" + stat
+    csv_path = "C:\\Coding\\Github\\bodyBuild_Companion\\data\\" + stat[value]
 
     df_Plot_Stat = pd.read_csv(csv_path)
 
-    if stat_Choice == 0:
-        print(df_Plot_Stat)
-        df_Plot_Stat.plot(x = "ActivityDate", y = "TotalSteps", kind ="line" )
-    elif stat_Choice == 1:
-        df_Plot_Stat.plot(x = "SleepDay", y = "TotalMinutesAsleep", kind ="line" )
+    if value == 0:
+        figure = df_Plot_Stat.plot(x = "ActivityDate", y = "TotalSteps", kind ="line" )
+    elif value == 1:
+        figure = df_Plot_Stat.plot(x = "SleepDay", y = "TotalMinutesAsleep", kind ="line" )
     else:
-        df_Plot_Stat.plot(x = "Date", y = "WeightPounds", kind ="line" )
+        figure = df_Plot_Stat.plot(x = "Date", y = "WeightPounds", kind ="line" )
+
+    folder_path = 'C:\\Coding\\Github\\bodyBuild_Companion\\app\\generatedStats\\'
+    figure_name = 'figure.jpg'
+    file_path = folder_path + figure_name
+
+
+    fig = figure.get_figure() 
+    fig.savefig(file_path)
+
+    return (file_path)
+
+
 
     
 

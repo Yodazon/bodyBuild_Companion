@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Build your bodybuilding buddy!</h1>
+    <form action="/generate" method="post">
+        <label for="input_data">Input:</label>
+        <input type="text" id="input_data" name="input_data" required>
+        <button type="submit">Generate Photo</button>
+    </form>
+
+    {% if generated_photo %}
+        <h1> Companion Built! Congrats</h1>
+        <img src="{{ url_for('generatedImages', filename=generated_photo) }}" alt="Generated Photo">
+        <button class="button" onclick="openPage('/')">Back to homepage</button>
+        <button class="button" onclick="openPage('/workout')">Make a Workout!</button>
+    {% else %}
+        <p>No photo generated yet.</p>
+    {% endif %}
+
+</body>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
