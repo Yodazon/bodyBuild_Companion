@@ -29,6 +29,7 @@ def index():
 
 @app.route('/generatedImages/<filename>')
 def generatedImages(filename):
+    print (f"The filname is {filename}")
     return send_from_directory('generatedImages', filename)
 
 
@@ -43,6 +44,7 @@ def generate():
 
 @app.route('/generatedStats/<filename>')
 def generatedStats(filename):
+    print (f"The filname is {filename}")
     return send_from_directory('generatedStats', filename)
 
 @app.route('/postStats', methods = ['POST'])
@@ -52,15 +54,15 @@ def postStats():
         print (f'The selected stat is {selected_button}')
         stat_to_be_shown = None
         if selected_button == 'activity':
-                stat_to_be_shown = stat.showStat(0)
+                stat_to_be_shown = stat.plotStat(0)
                 pass
 
         elif selected_button == 'sleep':
-                stat_to_be_shown = stat.showStat(1)
+                stat_to_be_shown = stat.plotStat(1)
                 pass
 
         elif selected_button == 'weight':
-                stat_to_be_shown = stat.showStat(2)
+                stat_to_be_shown = stat.plotStat(2)
                 pass
 
         else:
@@ -68,7 +70,7 @@ def postStats():
                 pass
         
         print(stat_to_be_shown)
-        return render_template('stats.html', generated_stats = stat_to_be_shown)
+        return render_template('stats.html', generated_stats = 'figure.jpg')
 
 
 
