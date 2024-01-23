@@ -39,26 +39,34 @@ def generate():
     modified_input_data = input_data + '.jpg'
     return render_template('companion.html', generated_photo=modified_input_data)
 
+
+
+@app.route('/generatedStats/<filename>')
+def generatedStats(filename):
+    return send_from_directory('generatedStats', filename)
+
 @app.route('/postStats', methods = ['POST'])
 def postStats():
         selected_button = request.form.get('stat_clicked')
         
         if selected_button == 'activity':
-                stat.showStat(0)
+                stat_to_be_shown = stat.showStat(0)
                 pass
 
         elif selected_button == 'sleep':
-                stat.showStat(1)
+                stat_to_be_shown = stat.showStat(1)
                 pass
 
         elif selected_button == 'weight':
-                stat.showStat(2)
+                stat_to_be_shown = stat.showStat(2)
                 pass
 
         else:
                 #suck my balls Mr Garrison
                 pass
-
+        
+        print(stat_to_be_shown)
+        return render_template('stats.html', generated_stats = stat_to_be_shown)
 
 
 

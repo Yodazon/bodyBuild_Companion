@@ -8,12 +8,20 @@
 </head>
 <body>
     <h1>Check out your stats</h1>
-    <p>Wgich of your stats would you like to take a look at?</p>
+    <p>Which of your stats would you like to take a look at?</p>
     <form action="/postStats" method="post">
-        <button class = "button" >Activity (Steps, Calories)</button>
-        <button class = "button" >Sleep</button>
-        <button class = "button" >Weight</button>
+        <button class = "button" name = "stat_clicked" >Activity (Steps, Calories)</button>
+        <button class = "button" name = "stat_clicked" >Sleep</button>
+        <button class = "button" name = "stat_clicked" >Weight</button>
     </form>
+
+    {% if generated_stats %}
+        <h1> Here are your Stats!</h1>
+        <img src="{{ url_for('generatedStats', filename=generated_stats) }}" alt="Generated Photo">
+        <button class="button" onclick="openPage('/')">Back to homepage</button>
+    {% else %}
+        <p>No stats generated yet.</p>
+    {% endif %}
     
 </body>
     <script src="{{ url_for('static', filename='script.js') }}"></script>

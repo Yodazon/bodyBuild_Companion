@@ -72,7 +72,8 @@ def showStat(stat_Choice):
             "weight.csv"]
     print(f"Cool, lets take a look at {stat[stat_Choice]}")
 
-    plotStat(stat[stat_Choice], stat_Choice)
+    plot = plotStat(stat[stat_Choice], stat_Choice)
+    return (plot)
 
 def plotStat(stat, stat_Choice):
     print (stat)
@@ -83,11 +84,21 @@ def plotStat(stat, stat_Choice):
 
     if stat_Choice == 0:
         print(df_Plot_Stat)
-        df_Plot_Stat.plot(x = "ActivityDate", y = "TotalSteps", kind ="line" )
+        figure = df_Plot_Stat.plot(x = "ActivityDate", y = "TotalSteps", kind ="line" )
     elif stat_Choice == 1:
-        df_Plot_Stat.plot(x = "SleepDay", y = "TotalMinutesAsleep", kind ="line" )
+        figure = df_Plot_Stat.plot(x = "SleepDay", y = "TotalMinutesAsleep", kind ="line" )
     else:
-        df_Plot_Stat.plot(x = "Date", y = "WeightPounds", kind ="line" )
+        figure = df_Plot_Stat.plot(x = "Date", y = "WeightPounds", kind ="line" )
+
+    folder_path = 'C:\\Coding\\Github\\bodyBuild_Companion\\app\\generatedStats\\'
+    figure_name = 'figure.jpg'
+    file_path = folder_path + figure_name
+
+    figure.savefig(file_path)
+
+    return (file_path)
+
+
 
     
 
