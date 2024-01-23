@@ -35,7 +35,7 @@ def generatedImages(filename):
 @app.route('/generate', methods=['POST'])
 def generate():
     input_data = request.form.get('input_data')
-    generated_photo = generatePhoto(input_data)
+    generatePhoto(input_data)
     modified_input_data = input_data + '.jpg'
     return render_template('companion.html', generated_photo=modified_input_data)
 
@@ -48,7 +48,9 @@ def generatedStats(filename):
 @app.route('/postStats', methods = ['POST'])
 def postStats():
         selected_button = request.form.get('stat_clicked')
-        
+
+        print (f'The selected stat is {selected_button}')
+        stat_to_be_shown = None
         if selected_button == 'activity':
                 stat_to_be_shown = stat.showStat(0)
                 pass

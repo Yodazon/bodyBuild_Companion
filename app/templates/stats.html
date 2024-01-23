@@ -10,9 +10,9 @@
     <h1>Check out your stats</h1>
     <p>Which of your stats would you like to take a look at?</p>
     <form action="/postStats" method="post">
-        <button class = "button" name = "stat_clicked" >Activity (Steps, Calories)</button>
-        <button class = "button" name = "stat_clicked" >Sleep</button>
-        <button class = "button" name = "stat_clicked" >Weight</button>
+        <button type = "submit" class = "button" value= "activity" name = "stat_clicked" >Activity (Steps, Calories)</button>
+        <button type = "submit" class = "button" value= "sleep" name = "stat_clicked" >Sleep</button>
+        <button type = "submit" class = "button" value= "weight" name = "stat_clicked" >Weight</button>
     </form>
 
     {% if generated_stats %}
