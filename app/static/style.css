@@ -26,4 +26,7 @@ nav a {
     color: white;
 }
 
-/* Add styles for about.html and contact.html as needed */
+#workout_box{
+    height: 50%;
+    width: 50%;
+}
