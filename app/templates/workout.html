@@ -8,7 +8,21 @@
 </head>
 <body>
     <h1>Build your Workout!</h1>
+    <p>What kind of program are you thinking about making?</p>
+    <form action="/generateWorkout" method="post">
+        <label for="input_data">Input:</label>
+        <input type="text" id="input_data" name="input_data" required>
+        <button type="submit">Generate Workout</button>
+    </form>
 
+    {% if generated_Workout %}
+        <h1> Companion Built! Congrats</h1>
+        <img src="{{ url_for('generatedWorkout', filename=generated_Workout) }}" alt="Generated Photo">
+        <button class="button" onclick="openPage('/')">Back to homepage</button>
+        <button class="button" onclick="openPage('/workout')">Make a Workout!</button>
+    {% else %}
+        <p>No photo generated yet.</p>
+    {% endif %}
 
 
 </body>

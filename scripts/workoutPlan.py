@@ -11,7 +11,8 @@ from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
 from clarifai_grpc.grpc.api.status import status_code_pb2
 
 
-def workoutGen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID)
+def workoutGen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID):
+
     channel = ClarifaiChannel.get_grpc_channel()
     stub = service_pb2_grpc.V2Stub(channel)
 
@@ -27,7 +28,7 @@ def workoutGen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID)
                 resources_pb2.Input(
                     data=resources_pb2.Data(
                         text=resources_pb2.Text(
-                            url=TEXT_FILE_URL
+                            raw= RAW_TEXT_INPUT
                         )
                     )
                 )
@@ -50,5 +51,5 @@ def workoutGen(RAW_TEXT_INPUT, PAT, USER_ID, APP_ID)
         for concept in output.data.concepts:
             print("	%s %.2f" % (concept.name, concept.value))
 
-# Uncomment this line to print the full Response JSON
-#print(results)
+        # Uncomment this line to print the full Response JSON
+        print(results)
