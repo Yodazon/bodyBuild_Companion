@@ -1,22 +1,10 @@
-
-######################################################################################################
-# In this section, we set the user authentication, user and app ID, model details, and the URL of 
-# the text we want as an input. Change these strings to run your own example.
-######################################################################################################
+#########################################################
 
 # Change these to whatever model and text URL you want to use
 WORKFLOW_ID = 'Image_Generation'
 TEXT_FILE_URL = 'https://samples.clarifai.com/negative_sentence_12.txt'
-#RAW_TEXT = 'A chibi bodybuilding robot companion'
-
-#RAW_TEXT_INPUT = input("What is your prompt?")
-#image_filename = f"{RAW_TEXT_INPUT}.jpg"
 
 
-
-############################################################################
-# YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
-############################################################################
 
 from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
 from clarifai_grpc.grpc.api import resources_pb2, service_pb2, service_pb2_grpc
