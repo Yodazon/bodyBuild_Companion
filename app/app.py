@@ -13,11 +13,13 @@ from scripts.workoutPlan import workoutGen
 
 app = Flask(__name__, template_folder= 'templates', static_folder='static')
 
-def generatePhoto(input):
+def generatePhoto_function(input):
         photo_path = imgGen(input,info.PAT, info.USER_ID, info.APP_ID )
+        print("this is the photo path")
+        print (photo_path)
         return photo_path
 
-def generateWorkout(input):
+def generateWorkout_function(input):
         workout_path = workoutGen(input,info.PAT, info.USER_ID, info.APP_ID )
         print ("this is the workout path")
         print(workout_path)
@@ -44,7 +46,7 @@ def generatedImages(filename):
 @app.route('/generatePhoto', methods=['POST'])
 def generatePhoto():
     input_data = request.form.get('input_data')
-    generatePhoto(input_data)
+    generatePhoto_function(input_data)
     modified_input_data = input_data + '.jpg'
     return render_template('companion.html', generated_photo=modified_input_data)
 
@@ -62,9 +64,10 @@ def generatedWorkout (filename):
 @app.route('/generateWorkout', methods=['POST'])
 def generateWorkout():
     input_data = request.form.get('input_data')
-    generateWorkout(input_data)
-    modified_input_data = input_data + '.jpg'
-    return render_template('workout.html', generated_photo=modified_input_data)
+    generateWorkout_function(input_data)
+    modified_input_data = input_data + '.txt'
+
+    return render_template('workout.html', generated_workout=modified_input_data)
 
 
 
